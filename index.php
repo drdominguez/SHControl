@@ -96,47 +96,56 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="cajas">
-                    <div class="titulocaja"><b> Sistema Manual </b></div>
-                    <input class="info" type="button" onclick="alert('Los datos que se deberán introducir son los correspondientes a duración: tiempo de regado y intervalo: durante cuantto tiempo se riega')" value="i">  
-                        <form method="post" action="Controlador/controller.php?accion=manual">
-                        <div class="texto" >
-                            <b> Duracion:&nbsp</b>
-                            <input type="text" size="5"  name="duracion" value="">  minutos<br>
-                            <b> Intervalo:&nbsp </b>
-                            <input id="intervalo" type="text" size="5" name="intervalo" value="">  minutos 
-                            <input id="botonokma" type="submit" value="OK">
-                        </div>
-                        <div class="texto" >
-                            <?php 
-                                if(strcmp($arrayDatosManualAutomatico[0][0],"manual")==0){
-                                    echo "<b id=\"activado\"> Activado</b><br>";
-                                    echo "<b>Valores duración: " . $arrayDatosManualAutomatico[0][1] . "mint e intervalo" . $arrayDatosManualAutomatico[0][2] . "mint</b>";
-                                }else{
-                                    echo "<b id=\"desactivado\"> Desactivado </b>";
-                                }
-                           ?>
-                        </div>
+                    <div class="titulocaja"><b> Sistema Manual </b></div>                        
+<?php 
+                        if(strcmp($arrayDatosManualAutomatico[0][0],"manual")==0){
+                            echo "<b id=\"activado\"> Activado</b>";
+                        }else{
+                            echo "<b id=\"desactivado\"> Desactivado </b>";
+                        }
+?>
+                        <button class="info" onclick="alert('Los datos que se deberán introducir son los correspondientes a duración: tiempo de regado y intervalo: durante cuantto tiempo se riega')" value="i"><img src="Vista/inf.png"></button><br><br>
+                        <form class="texto" method="post" display="inline-block" action="Controlador/controller.php?accion=manual">
+                            <fieldset>                             
+                                <b style="float:left"> Duracion:&nbsp</b>
+                                <input id="duracion" type="text" size="5"  name="duracion" value="">  minutos
+                                <b style="float:center; margin-left: 32px;"> Intervalo:&nbsp </b>
+                                <input id="intervalo" type="text" size="5" name="intervalo" value="">  minutos<br><br><br>
+                                    
+<?php 
+                                        if(strcmp($arrayDatosManualAutomatico[0][0],"manual")==0){
+                                            echo "Valores duración: " . $arrayDatosManualAutomatico[0][1] . " minutos e intervalo " . $arrayDatosManualAutomatico[0][2] . " mintos.";
+                                        }else{
+                                        }
+?>
+                                <input id="botonokma" type="submit" value="OK">
+                            </fieldset>
                         </form> 
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="cajas">
-                    <div class="titulocaja"><b> Sistema Automático </b></div>
-                    <input class="info" type="button" onclick="alert('El dato que se deberá introducir es el correpondiente a la humedad mínma que ha de tener el circuíto')" value="i">  
-                        <form method="post" action="Controlador/controller.php?accion=automatico">
-                        <div class="texto">
-                            <b> Humedad mínima: </b>
-                            <input type="text" size="5"  name="humedadminima" value=""> %<br>
-                            <input id="botonokau" type="submit" value="OK">
-                            <?php 
+                    <div class="titulocaja"><b> Sistema Automático </b></div>                          
+<?php 
+                        if(strcmp($arrayDatosManualAutomatico[0][0],"automatico")==0){
+                            echo "<b id=\"activado\"> Activado</b>";
+                        }else{
+                            echo "<b id=\"desactivado\"> Desactivado </b>";
+                        }
+?>
+                        <button class="info" onclick="alert('El dato que se deberá introducir es el correpondiente a la humedad mínma que ha de tener el circuíto')" value="i"><img src="Vista/inf.png"></button><br><br>            
+                        <form class="texto" method="post" action="Controlador/controller.php?accion=automatico">
+                            <fieldset>    
+                                <b> Humedad mínima: </b>
+                                <input type="text" size="5"  name="humedadminima" value=""> %<br><br><br>
+                                <input id="botonokau" type="submit" value="OK">
+<?php 
                                 if(strcmp($arrayDatosManualAutomatico[0][0],"automatico")==0){
-                                    echo "<b id=\"activado\"> Activado </b><br>";
-                                    echo "<b>Valor de humedad mínima: " . $arrayDatosManualAutomatico[0][1] . " %</b>";
+                                    echo "Valor de humedad mínima: " . $arrayDatosManualAutomatico[0][1] . " %";
                                 }else{
-                                    echo "<b id=\"desactivado\"> Desactivado </b>";
                                 }
-                           ?>
-                        </div>
+?>
+                            </fieldset>
                         </form> 
                     </div>
                 </div>

@@ -22,6 +22,7 @@
 <?php    
                         fwrite($archivo, "automatico,".$humedadminima.",0,".date("Y-m-d H:m:s"));
                         fclose($archivo);
+                        exec('sh /Users/daniel/shcontrol.sh');
                     }
                 }
                 break;
