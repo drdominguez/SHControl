@@ -14,7 +14,7 @@
 }
 #botonokma
 {
-  margin-left: 40px;
+  margin-right: 25px;
   margin-top: -21px;
   float: right;
   width: 80px;
@@ -22,7 +22,7 @@
 }
 #botonokau
 {
-  margin-left: 40px;
+  margin-right: 25px;
   margin-top: -21px;
   float: right;
   width: 80px;
@@ -42,6 +42,7 @@
   float: left;
 }
 .info{
+  margin-right: 10px;
   float: right;
 }
 #activado{
@@ -52,9 +53,8 @@
   color: red;
   margin-left: 15px;
 }
-fieldset{
-  min-width: 442px;
-  min-height: 39px;
+form{
+  width: 100%;
 }
 img {
   height: 20px;

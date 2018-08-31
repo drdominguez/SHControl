@@ -29,7 +29,7 @@
 
 <body>
 <?php 
-    $datos = fopen('/Users/daniel/Sites/SHControl/startbootstrap-sb-admin-2-gh-pages/data/FDatos.csv', 'r');
+    $datos = fopen('startbootstrap-sb-admin-2-gh-pages/data/FDatos.csv', 'r');
     $arrayDatos = array();
     while (($line = fgetcsv($datos)) !== FALSE) {
     //$line is an array of the csv elements
@@ -38,7 +38,7 @@
 
     fclose($datos);
 
-    $datosmanauto = fopen('/Users/daniel/Sites/SHControl/startbootstrap-sb-admin-2-gh-pages/data/FDatosManualAutomatico.csv', 'r');
+    $datosmanauto = fopen('startbootstrap-sb-admin-2-gh-pages/data/FDatosManualAutomatico.csv', 'r');
     $arrayDatosManualAutomatico = array();
     if(($line = fgetcsv($datosmanauto)) !== FALSE) {
     //$line is an array of the csv elements
