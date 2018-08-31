@@ -13,8 +13,8 @@
                         fwrite($archivo, "automatico,".$humedadminima.",0,".date("Y-m-d H:m:s"));
                         fclose($archivo);
                         exec("sudo sshpass -p 'shcontrol' scp /var/www/html/SHControl/startbootstrap-sb-admin-2-gh-pages/data/FDatosManualAutomatico.csv pi@192.168.1.41:/home/pi/Desktop");
-                        
-?>
+                        //exec("sudo sshpass -p 'shcontrol' scp /Users/daniel/Sites/SHControl/startbootstrap-sb-admin-2-gh-pages/data/FDatosManualAutomatico.csv pi@192.168.1.41:/home/pi/Desktop");
+?>/
                         <script>if(confirm('Deseas continuar?')){ 
                             alert('Insertados datos manuales correctamente');
                             document.location='../index.php';
