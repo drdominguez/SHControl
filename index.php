@@ -67,23 +67,10 @@
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 <a class="navbar-brand" href="index.php">SHControl</a>
             </div>
-            <!-- /.navbar-header -->
-
-            
-
-            
             <!-- /.navbar-static-side -->
         </nav>
-
-        
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header" style="color:white">SHControl</h1>
@@ -165,22 +152,9 @@
                     
                    
                 </div>
-                <!-- /.col-lg-8 -->
-                
-                <!-- /.col-lg-4 -->
             </div>
-            <!-- /.row -->
     </div>
-
-<style>
-#chartdiv {
-	width	: 100%;
-	height	: 500px;
-}			
-
-
-</style>
-<!-- Resources -->
+    <!-- Resources -->
 <script src="grafica/amcharts.js"></script>
 <script src="grafica/serial.js"></script>
 <script src="grafica/light.js"></script>
@@ -293,6 +267,6 @@ function zoomChart(){
     chart.zoomToIndexes(chart.dataProvider.length - 20, chart.dataProvider.length - 1);
 }
 </script>
-
+</body>
 <!-- HTML -->
 </html>

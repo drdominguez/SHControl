@@ -61,4 +61,7 @@ img {
   border: 0;
   width: 20px;
 }
-  
+#chartdiv {
+  width : 100%;
+  height  : 500px;
+} 
