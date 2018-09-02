@@ -28,6 +28,22 @@
 </head>
 
 <body>
+    <script>
+        function alertaManual(){
+            if(confirm('Deseas continuar?')){ 
+                document.manual.submit();
+            }else{
+                alert('Operacion Cancelada');
+            }
+        }
+        function alertaAutomatico(){
+            if(confirm('Deseas continuar?')){ 
+                document.automatico.submit();
+            }else{
+                alert('Operacion Cancelada');
+            }
+        }
+    </script>
 <?php 
     $datos = fopen('startbootstrap-sb-admin-2-gh-pages/data/FDatos.csv', 'r');
     $arrayDatos = array();
@@ -46,7 +62,7 @@
     }
     fclose($datosmanauto);
 ?>
-	<div id="wrapper">
+	<div id="wrapper" style="background-color:black">
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -63,28 +79,11 @@
 
             
 
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            
-                            <!-- /input-group -->
-                        </li>
-                        <li>
-                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> SHControl</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Gráficas</a>
-                            
-                          
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
+            
             <!-- /.navbar-static-side -->
         </nav>
 
-        <div id="page-wrapper" style="background-color:black">
+        
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header" style="color:white">SHControl</h1>
@@ -105,7 +104,7 @@
                         }
 ?>
                         <button class="info" onclick="alert('Los datos que se deberán introducir son los correspondientes a duración: tiempo de regado y intervalo: durante cuantto tiempo se riega')" value="i"><img src="Vista/inf.png"></button><br><br>
-                        <form class="texto" method="post" display="inline-block" action="Controlador/controller.php?accion=manual">
+                        <form class="texto" name="manual" method="post" display="inline-block" action="Controlador/controller.php?accion=manual">
                             <fieldset>                             
                                 <b style="float:left"> Duracion:&nbsp</b>
                                 <input id="duracion" type="text" size="5"  name="duracion" value="">  minutos
@@ -118,7 +117,7 @@
                                         }else{
                                         }
 ?>
-                                <input id="botonokma" type="submit" value="OK">
+                                <input id="botonokma" type="button" onclick=alertaManual() value="OK">
                             </fieldset>
                         </form> 
                     </div>
@@ -134,11 +133,11 @@
                         }
 ?>
                         <button class="info" onclick="alert('El dato que se deberá introducir es el correpondiente a la humedad mínma que ha de tener el circuíto')" value="i"><img src="Vista/inf.png"></button><br><br>            
-                        <form class="texto" method="post" action="Controlador/controller.php?accion=automatico">
+                        <form class="texto" name="automatico" method="post" action="Controlador/controller.php?accion=automatico">
                             <fieldset>    
                                 <b> Humedad mínima: </b>
                                 <input type="text" size="5"  name="humedadminima" value=""> %<br><br><br>
-                                <input id="botonokau" type="submit" value="OK">
+                                <input id="botonokau" type="button" onclick=alertaAutomatico() value="OK">
 <?php 
                                 if(strcmp($arrayDatosManualAutomatico[0][0],"automatico")==0){
                                     echo "Valor de humedad mínima: " . $arrayDatosManualAutomatico[0][1] . " %";
@@ -171,8 +170,6 @@
                 <!-- /.col-lg-4 -->
             </div>
             <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
     </div>
 
 <style>

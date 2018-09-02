@@ -17,16 +17,12 @@
                         $connection = ssh2_connect('192.168.1.41', 22);
                         ssh2_auth_password($connection, 'pi', 'shcontrol');
                         ssh2_scp_send($connection, '/var/www/html/SHControl/startbootstrap-sb-admin-2-gh-pages/data/FDatosManualAutomatico.csv', '/home/pi/Desktop/SHControl/FDatosManualAutomatico.csv', 0644);
-?>/
-                        <script>if(confirm('Deseas continuar?')){ 
-                            alert('Insertados datos manuales correctamente');
-                            document.location='../index.php';
-                        }else{
-                            alert('Operacion Cancelada');
-                            document.location='../index.php';
-                        }
-                        </script>
-<?php    
+?>
+<script>
+                        alert('Insertado dato automático correctamente');
+                        document.location='../index.php';
+</script>
+<?php
                     }
                 }
                 break;
@@ -41,17 +37,12 @@
                         fclose($archivo);
                         $connection = ssh2_connect('192.168.1.41', 22);
                         ssh2_auth_password($connection, 'pi', 'shcontrol');
-                        ssh2_scp_send($connection, '/var/www/html/SHControl/startbootstrap-sb-admin-2-gh-pages/data/FDatosManualAutomatico.csv', '/home/pi/Desktop/SHControl/FDatosManualAutomatico.csv', 0644);
 ?>
-                        <script>if(confirm('Deseas continuar?')){ 
-                            alert('Insertados datos manuales correctamente');
-                            document.location='../index.php';
-                        }else{
-                            alert('Operacion Cancelada');
-                            document.location='../index.php';
-                        }
-                        </script>
-<?php                        
+<script>
+                        alert('Insertados datos manuales correctamente');
+                        document.location='../index.php';
+</script>
+<?php                                            
                         
                     }
                 }
