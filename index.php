@@ -67,12 +67,12 @@
     //Se cierra el fichero "FDatosManualAutomático.csv"
     fclose($datosmanauto);
 ?>
-	<div id="wrapper" style="background-color:black;width: 97%">
+	<div id="wrapper" style="background-color:black">
         <!--Se introduce el título: "SHCONTROL"-->
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header" style="color:white">SHControl</h1>
-            </div>>
+            </div>
         </div>
         <!--Se crea la cajas para el sitema manual-->
         <div class="row">
