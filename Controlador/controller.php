@@ -14,7 +14,7 @@
                         fclose($archivo);
                         //exec("sudo sshpass -p 'shcontrol' scp /var/www/html/SHControl/startbootstrap-sb-admin-2-gh-pages/data/FDatosManualAutomatico.csv pi@192.168.1.41:/home/pi/Desktop");
                         //exec("sudo sshpass -p 'shcontrol' scp /Users/daniel/Sites/SHControl/startbootstrap-sb-admin-2-gh-pages/data/FDatosManualAutomatico.csv pi@192.168.1.41:/home/pi/Desktop");
-                        $connection = ssh2_connect('192.168.1.41', 22);
+                        $connection = ssh2_connect('192.168.40.115', 22);
                         ssh2_auth_password($connection, 'pi', 'shcontrol');
                         ssh2_scp_send($connection, '/var/www/html/SHControl/startbootstrap-sb-admin-2-gh-pages/data/FDatosManualAutomatico.csv', '/home/pi/Desktop/SHControl/FDatosManualAutomatico.csv', 0644);
 ?>
@@ -35,7 +35,7 @@
                     {
                         fwrite($archivo, "manual,".$duracion.",".$intervalo.",".date("Y-m-d H:m:s"));
                         fclose($archivo);
-                        $connection = ssh2_connect('192.168.1.41', 22);
+                        $connection = ssh2_connect('192.168.40.115', 22);
                         ssh2_auth_password($connection, 'pi', 'shcontrol');
                         ssh2_scp_send($connection, '/var/www/html/SHControl/startbootstrap-sb-admin-2-gh-pages/data/FDatosManualAutomatico.csv', '/home/pi/Desktop/SHControl/FDatosManualAutomatico.csv', 0644);
 ?>
