@@ -46,6 +46,11 @@
         }
     </script>
 <?php
+    $self = $_SERVER['PHP_SELF']; //Obtenemos la página en la que nos encontramos
+    header("refresh:60; url=$self"); //Refrescamos cada minuto
+    $connection = ssh2_connect('192.168.40.115', 22);
+    ssh2_auth_password($connection, 'pi', 'shcontrol');
+    ssh2_scp_recv($connection, '/home/pi/Desktop/SHControl/FDatosManualAutomatico.csv' , '/var/www/html/SHControl/startbootstrap-sb-admin-2-gh-pages/data/FDatosManualAutomatico.csv');
     //Se abre el fichero "FDatos.csv" 
     $datos = fopen('startbootstrap-sb-admin-2-gh-pages/data/FDatos.csv', 'r');
     //Se introducen los datos del fichero en un array
@@ -247,7 +252,7 @@
         zoomChart();
 
 
-        // generate some random data, quite different range
+        // Recoge los datos que se mostrar en la gráfica mediante un array
         function generateChartData() {
             var arrayJS = <?php echo json_encode($arrayDatos);?>;
 
@@ -259,7 +264,7 @@
             console.log(chartData);    
             return chartData;
         }
-
+        //Realiza un zoom en la gráfica
         function zoomChart(){
             chart.zoomToIndexes(chart.dataProvider.length - 20, chart.dataProvider.length - 1);
         }
