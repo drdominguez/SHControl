@@ -16,7 +16,7 @@
                     if($archivo = fopen("../startbootstrap-sb-admin-2-gh-pages/data/".$nombre_archivo, "w"))
                     {
                         //Escribe el sistema que es con el valor correspondiente y la fecha
-                        fwrite($archivo, "automatico,".$humedadminima.",0,".date("Y-m-d H:m:s"));
+                        fwrite($archivo, "automatico,".$humedadminima.",0,".strftime("%Y-%m-%d %H:%M:%S"));
                         //Cierra el archivo
                         //Envía el fichero a la raspberry
                         $connection = ssh2_connect('192.168.40.115', 22);
@@ -54,7 +54,7 @@
                     if($archivo = fopen("../startbootstrap-sb-admin-2-gh-pages/data/".$nombre_archivo, "w"))
                     {   
                         //Escribe los datos correspondientes al sitema manual
-                        fwrite($archivo, "manual,".$duracion.",".$intervalo.",".date("Y-m-d H:m:s"));
+                        fwrite($archivo, "manual,".$duracion.",".$intervalo.",".strftime("%Y-%m-%d %H:%M:%S"));
                         //Cierra el archivo
                         fclose($archivo);
                         //Envía el fichero a la raspberry
@@ -74,7 +74,7 @@
 ?>
 <script>      
                         //Alerta de se escribieron los datos de manera incorrecta
-                        alert('Insertados datos manuales correctamente');
+                        alert('Error: Problema en el insertado de los datos manuales');
                         //Vuelve a la vista principal
                         document.location='../index.php';
 </script>
@@ -82,6 +82,40 @@
                     }
                 }
                 break;
+            //En caso de detener
+            case 'detener':
+                $nombre_archivo = "FDatosManualAutomatico.csv";
+                //Crea, si no existe, el fichero "FDatosManualAutomatico.csv" y lo abre
+                if($archivo = fopen("../startbootstrap-sb-admin-2-gh-pages/data/".$nombre_archivo, "w"))
+                {   
+                    //Escribe los datos correspondientes para detener el sistema
+                    fwrite($archivo, "stop,0,0,".strftime("%Y-%m-%d %H:%M:%S"));
+                    //Cierra el archivo
+                    fclose($archivo);
+                    //Envía el fichero a la raspberry
+                    $connection = ssh2_connect('192.168.40.115', 22);
+                    ssh2_auth_password($connection, 'pi', 'shcontrol');
+                    ssh2_scp_send($connection, '/var/www/html/SHControl/startbootstrap-sb-admin-2-gh-pages/data/FDatosManualAutomatico.csv', '/home/pi/Desktop/SHControl/FDatosManualAutomatico.csv', 0644);
+?>
+<script>                
+                    //Alerta de se paro el sistema
+                    alert('Detenido el sistema');
+                    //Vuelve a la vista principal
+                    document.location='../index.php';
+</script>
+<?php                                            
+                    
+                }else{
+?>
+<script>      
+                    //Alerta de se escribieron los datos de manera incorrecta
+                    alert('No se pudo detener el circuíto');
+                    //Vuelve a la vista principal
+                    document.location='../index.php';
+</script>
+<?php 
+                }
+            break;
             //En caso de que tenga otro valor
             default:
                 break;

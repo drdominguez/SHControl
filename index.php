@@ -29,7 +29,7 @@
 
 <body>
     <script>
-        //Funciones que permiten aceptar o cancelar los datos introducidos en los sitemas manual y automático
+        //Funciones que permiten aceptar o cancelar los datos introducidos en los sitemas manual y automático. Y aceptar o detener cualñquiera de los dos sitemas
         function alertaManual(){
             if(confirm('Deseas continuar?')){ 
                 document.manual.submit();
@@ -40,6 +40,13 @@
         function alertaAutomatico(){
             if(confirm('Deseas continuar?')){ 
                 document.automatico.submit();
+            }else{
+                alert('Operacion Cancelada');
+            }
+        }
+        function alertaDetener(){
+            if(confirm('Se parará el sistema?')){ 
+                document.detener.submit();
             }else{
                 alert('Operacion Cancelada');
             }
@@ -77,6 +84,10 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header" style="color:white">SHControl</h1>
+
+                <form  name="detener" method="post" display="inline-block" action="Controlador/controller.php?accion=detener">
+                        <imput id="botonstop" type="button" onclick=alertaDetener() value="STOP" ><img style="width: 55px;height: 55px;margin-left: 48%;" src="Vista/stop.png"><br><br>
+                </form>
             </div>
         </div>
         <!--Se crea la cajas para el sitema manual-->

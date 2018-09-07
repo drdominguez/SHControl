@@ -28,6 +28,10 @@
   width: 80px;
   height: 40px;
 }
+#botonstop
+{
+  float: center;
+}
 .texto
 {
   display: inline-block;
